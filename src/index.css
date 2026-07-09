@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  /* Base Variables - Dark Mode (Default) */
+  --bg-color: #030712;
+  --surface-color: #0f172a;
+  --surface-hover: #1e293b;
+  --primary-text: #f8fafc;
+  --secondary-text: #94a3b8;
+  --accent-color: #22d3ee;
+  --accent-glow: rgba(34, 211, 238, 0.4);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --grid-color: rgba(255, 255, 255, 0.02);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --ambient-blend: screen;
+
+  color-scheme: dark;
+}
+
+:root.light-mode {
+  /* Base Variables - Light Mode */
+  --bg-color: #f8fafc;
+  --surface-color: #ffffff;
+  --surface-hover: #f1f5f9;
+  --primary-text: #0f172a;
+  --secondary-text: #64748b;
+  --accent-color: #0891b2;
+  --accent-glow: rgba(8, 145, 178, 0.2);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --grid-color: rgba(0, 0, 0, 0.03);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --ambient-blend: multiply;
+
+  color-scheme: light;
+}
+
+@theme {
+  --color-background: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-surface-hover: var(--surface-hover);
+  --color-primary: var(--primary-text);
+  --color-secondary: var(--secondary-text);
+  --color-accent: var(--accent-color);
+  --color-accent-glow: var(--accent-glow);
+  --color-subtle-border: var(--border-color);
+  --color-strong-border: var(--border-strong);
+  --color-card: var(--card-bg);
+}
+
+* {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color) !important;
+  color: var(--primary-text);
+  transition: background-color 0.4s ease;
+}
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  /* Complex Dynamic Background Grid */
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+}
+
+@media (max-width: 768px) {
+  :root {
+    background-size: 30px 30px;
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 40px 0 var(--shadow-color);
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+}
+
+/* Typography Consistency */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-text);
+}
+
+/* Correctly handle Prose in both modes */
+.prose {
+  --tw-prose-body: var(--secondary-text);
+  --tw-prose-headings: var(--primary-text);
+  --tw-prose-links: var(--accent-color);
+  --tw-prose-bold: var(--primary-text);
+  --tw-prose-bullets: var(--accent-color);
+  --tw-prose-hr: var(--border-color);
+  --tw-prose-quotes: var(--primary-text);
+  --tw-prose-quote-borders: var(--accent-color);
+  --tw-prose-code: var(--primary-text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 10px;
+}
