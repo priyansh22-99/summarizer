@@ -1,3 +1,26 @@
+node_modules/
+dist/
+build/
+.vite/
+.env
+.env.local
+.env.*.local
+.DS_Store
+.cache
+.idea/
+.vscode/
+coverage/
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+*.tgz
+/.pnp
+/.pnp.js
+dist-*/
+*.local
+/.history
+
 # Logs
 logs
 *.log
