@@ -20,6 +20,7 @@ package-lock.json
 dist-*/
 *.local
 /.history
+!.env.local.example
 
 # Logs
 logs
